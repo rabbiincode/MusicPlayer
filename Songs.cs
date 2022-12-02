@@ -73,18 +73,42 @@ namespace MusicPlayer
 
         public void Remove()
         {
+            removeSong: Console.WriteLine(".....Remove song.....");
             Console.Write("Enter song index : ");
-            remove = Convert.ToInt32(Console.ReadLine());
-            songs.RemoveAt(remove);
+            try
+            {
+                remove = Convert.ToInt32(Console.ReadLine());
+                songs.RemoveAt(remove);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Enter a valid id");
+                goto removeSong;
+            }
+            Console.BackgroundColor = ConsoleColor.Red;
+            Console.WriteLine("{0} deleted", songs[remove]);
+
+            Console.BackgroundColor = ConsoleColor.Green;
             songList();
         }
 
         public void Edit()
         {
-            Console.Write("Enter song index you wish to edit : ");
-            editIndex = Convert.ToInt32(Console.ReadLine());
+            editSong:  Console.Write("Enter song index you wish to edit : ");
 
-            Console.Write("Edit Song : ");
+            try
+            {
+                editIndex = Convert.ToInt32(Console.ReadLine());
+                songs.RemoveAt(remove);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("Enter a valid id");
+                goto editSong;
+            }
+            Console.BackgroundColor = ConsoleColor.Blue;
+            Console.WriteLine("'Edit {0}' : ", songs[editIndex]);
+            Console.Write("Edit : ");
             edit = Console.ReadLine();
 
             songs.RemoveAt(remove);

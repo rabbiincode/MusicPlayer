@@ -5,23 +5,33 @@
         static void Main(string[] args)
         {
             string answer;
+            bool starting = true;
             Application start = new ();
 
-            start.App();
+            begin: start.App();
 
-            start1: Console.Write("Do you want to continue? : ");
+            Console.BackgroundColor = ConsoleColor.Red;
+            begin1: Console.Write("Do you want to continue? : ");
             answer = Console.ReadLine().ToLower();
 
-            if (answer == "Y")
-                start.App();
-            else if (answer == "N")
+            while (starting)
             {
-                Console.WriteLine("Thanks for using genie music");
-            }
-            else
-            {
-                Console.WriteLine("Input a valid option");
-                goto start1;
+                if (answer == "y")
+                {
+                    Console.Clear();
+                    goto begin;
+
+                }
+                else if (answer == "n")
+                {
+                    Console.WriteLine("Thanks for using genie music");
+                    starting = false;
+                }
+                else
+                {
+                    Console.WriteLine("Input a valid option");
+                    goto begin1;
+                }
             }
 
         }

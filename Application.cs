@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MusicPlayer
 {
@@ -11,18 +7,17 @@ namespace MusicPlayer
         public void App()
         {
             int input;
-            bool playing = true;
             Songs song = new();
             Play music = new();
 
-        start2: Console.WriteLine("Genie Music");
+            Console.WriteLine("Genie Music");
 
             Console.WriteLine(".........Menu.........");
             Console.WriteLine(" >Play -- press 1\n >Add song -- press 2\n >Remove song -- press 3\n" +
                 " >Edit song -- press 4\n >Create PlayList -- press 5\n >Play randomly -- press 6\n" +
-                " >Play in order -- press 7\n >Play alphabetically -- press 8  ");
+                " >Play in order -- press 7\n >Play alphabetically -- press 8");
 
-        start: Console.Write("Enter Selection : ");
+            start: Console.Write("Enter Selection : ");
 
             try
             {
@@ -36,7 +31,7 @@ namespace MusicPlayer
             }
             catch (Exception e)
             {
-                Console.WriteLine(e.Message);
+                Console.WriteLine("Enter a valid input");
                 goto start;
             }
 
